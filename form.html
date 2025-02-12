@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário para Grupo</title>
+
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+
+    <section class="flex">
+
+        <div class="container">
+
+            <header>
+                <h1>Não Feche Essa Página Sua Inscrição Começa Aqui</h1>
+                <p class="barra-progresso"><span>30%</span></p>
+            </header>
+
+            <h2 class="h2-form">PREENCHA SEUS DADOS ABAIXO</h2>
+
+            <main>
+                <form id="meuFormulario" action="submit">
+                    <input type="text" name="nome" placeholder="Seu Nome Completo" class="foco" autocomplete="name" required>
+                    <input type="email" name="email" placeholder="Seu Melhor E-mail" class="foco" autocomplete="email" required id="email">
+                    <p id="validacao-email">O campo é Obrigatório!</p>
+                    <input type="tel" name="telefone" placeholder="Seu Telefone com DDD (Ex: 51999998888)" class="foco-normal" autocomplete="tel" required id="tel">
+                    <p id="validacao-telefone">O número digitado está incorreto ou não atende aos requisitos...</p>
+                    <button type="submit" id="botao-form">
+                        <div class="spinner" id="spinner"></div>
+                        Continuar
+                    </button>
+                </form>
+            </main>
+            <!--Quando ele se cadastrar direciona para o wahtsapp e envia um email-->
+            <p id="mensagem-explicativa">Preencha o formulário e você será redirecionado...</p>
+
+        </div>
+
+    </section>
+
+    <div class="line"></div>
+    
+    <section class="block">
+        <div class="container2">
+
+            <img src="/logo.avif" alt="logo das possibilidades de criação de sites com o curso">
+
+            <div class="conteudo">
+                <h2>Tipos de Sites que Você Pode Criar</h2>
+
+                <p>
+                    Existem diversos tipos de sites lucrativos que podem ser desenvolvidos para atender diferentes necessidades do mercado digital. Entre eles, destacam-se o e-commerce, e-shopping, Let’s Shop e Online Shop, cada um com suas particularidades e vantagens.
+            
+                    O e-commerce é uma loja virtual completa, ideal para empresas que vendem produtos e serviços online. O e-shopping segue o mesmo conceito, mas pode englobar vários vendedores, como um marketplace. O Let’s Shop é um modelo mais dinâmico e voltado para compras rápidas, enquanto o Online Shop é uma versão simplificada de uma loja digital, focada em usabilidade e conversão.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+        document.getElementById('meuFormulario').addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            function validarEmail(email) {
+                const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                
+                if (!regex.test(email)) {
+                    document.getElementById('validacao-email').style.display = 'block';
+                    document.getElementById('email').classList.add('error');
+                } else {
+                    document.getElementById('validacao-email').style.display = 'none';
+                    document.getElementById('email').classList.remove('error');
+                    return true;
+                }
+            }
+
+            function validarTelefone(telefone) {
+                const regex = /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/;
+                
+                if (!regex.test(telefone)) {
+                    document.getElementById('validacao-telefone').style.display = 'block';
+                    document.getElementById('tel').classList.add('error');
+                } else {
+                    document.getElementById('validacao-telefone').style.display = 'none';
+                    document.getElementById('tel').classList.remove('error');
+                    return true;
+                }
+            }
+
+
+            let email = document.getElementById('email').value;
+            let telefone = document.getElementById('tel').value;
+
+            let validaEmail = validarEmail(email);
+            let validaTelefone = validarTelefone(telefone);
+
+            if (validaEmail && validaTelefone) {
+                let button = document.getElementById('botao-form');
+                let spinner = document.getElementById('spinner');
+
+                spinner.style.display = "inline-block";
+                button.disabled = true;
+                button.style.opacity = "0.7";
+
+                setTimeout(() => {
+                    alert("Formulário enviado com sucesso! Você será redirecionado...");
+                    
+                    // Esconde o spinner e reativa o botão
+                    spinner.style.display = "none";
+                    button.disabled = false;
+                    button.style.opacity = "1";
+
+                    let telefone = '5551995638510';
+
+                    let mensagem = 'Olá gostaria de mais informações sobre o curso!'
+
+                    let link = `https://wa.me/${telefone}?text=${mensagem}`;
+
+                    window.open(link, '_blanck');
+                    
+                    this.reset();
+                }, 2000);
+            }
+        })
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBar = document.querySelector('.barra-progresso span');
+            const progressText = document.querySelector('.barra-progresso span');
+
+            let progress = 30;
+
+            if (progressBar) {
+                let progress = 30;
+
+                progressBar.style.width = progress + '%';
+                progressBar.textContent = progress + '%';
+            }    
+        }
+    )
+    </script>
+
+</body>
+</html>
