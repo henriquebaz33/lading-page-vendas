@@ -130,12 +130,27 @@ img {
     iframe {
         border: 7px rgb(199, 169, 0) solid;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-        width: 450px !important;
-        height: 225px !important;
+        width: 90% !important;
+        height: 200px !important;
     }   
     
     h2 {
         font-size: 24px;
+    }
+
+    .conteudo h2 {
+        font-size: 14px;
+    }
+
+    .conteudo p {
+        margin-top: 25px;
+        font-size: 10px !important;
+        text-align: center;
+    }
+
+    .button a {
+        padding: 15px;
+        font-size: 11px !important;
     }
 }
 
