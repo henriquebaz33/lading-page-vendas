@@ -6,6 +6,8 @@
 
 html, body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 100%;
+    height: 100%;
 }
 
 .flex, .block {
@@ -25,6 +27,7 @@ html, body {
 header {
     background-color: rgb(241, 205, 1);
     display: block;
+    width: 100%;
     padding: 20px;
     color: rgb(0, 19, 190);
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
@@ -35,7 +38,7 @@ header {
     width: 90%;
     margin: 10px auto;
     border-radius: 20px;
-    font-size: 16px;
+    font-size: 1rem; /* Unidade relativa */
     height: 40px;
 }
 
@@ -55,11 +58,12 @@ span {
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 3rem; /* Unidade relativa */
 }
 
 .container {
-    width: 100%;
+    width: 90%;
+    max-width: 1200px;
     margin: 25px auto;
     text-align: center;
     margin-top: 0;
@@ -79,10 +83,11 @@ h1 {
 
 .container2 {
     color: white;
-    padding: 100px;
+    padding: 50px 20px; /* Ajuste de padding para responsividade */
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 90%;
+    max-width: 1200px;
     margin: auto;
     justify-content: space-between;
 }
@@ -94,13 +99,13 @@ h1 {
 
 .conteudo p {
     text-align: start;
-    font-size: 18px;
+    font-size: 1.1rem; /* Unidade relativa */
     max-width: 500px;
     max-height: 400px;
 }
 
 .h2-form {
-    font-size: 42px;
+    font-size: 2.5rem; /* Unidade relativa */
     margin: 70px 0 40px 0;
     font-weight: bold;
     color: white;
@@ -115,15 +120,15 @@ input {
     color: white;
     display: block;
     margin: 10px auto;
-    padding: 20px;
-    width: 60%;
+    padding: 15px;
+    width: 90%;
+    max-width: 600px; /* Limita a largura máxima */
     border-radius: 10px;
     outline: none;
     border: 1px solid rgb(97, 97, 97);
-    font-size: 18px;
+    font-size: 1rem; /* Unidade relativa */
     background-color: rgba(0, 0, 0, 0.7);
-    transition: background-color 0.3s ease-in-out;
-    transition: border 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
 }
 
 .foco:focus {
@@ -145,119 +150,41 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 #botao-form {
-    padding: 20px;
-    width: 60%; 
+    padding: 15px;
+    width: 90%;
+    max-width: 600px; /* Limita a largura máxima */
     border-radius: 10px; 
     border: none;  
     background-color: rgb(0, 151, 0);
     color: white;
-    font-size: 24px;
+    font-size: 1.2rem; /* Unidade relativa */
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out
+    transition: background-color 0.3s ease-in-out;
 }
 
 #botao-form:hover {
     color: black;
     background-color: rgb(1, 187, 1);
-
 }
 
 #mensagem-explicativa {
     color: white;
     margin: 30px auto 70px;
-    font-size: 18px;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)
+    font-size: 1.1rem; /* Unidade relativa */
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 img {
-    max-width: 400px;
+    max-width: 100%;
+    width: 400px;
     border-radius: 50%;
     border: 7px rgb(199, 169, 0) solid;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
-    font-size: 32px;
-}
-
-@media screen and (max-width: 700px) {
-    h1 {
-        font-size: 32px;
-    }  
-    
-    .h2-form {
-        font-size: 28px;
-    }
-
-    #mensagem-explicativa {
-        font-size: 16px;
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-
-    img {
-        max-width: 60%; /* Faz com que as imagens diminuam também */
-    }
-
-    .container2 {
-        flex-direction: column; /* Faz os elementos ficarem um abaixo do outro */
-        text-align: center;
-        gap: 20px;
-    }
-
-    .conteudo p {
-        margin-top: 25px;
-        font-size: 14px;
-        text-align: center;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .container2 {
-        flex-direction: column; /* Faz os elementos ficarem um abaixo do outro */
-        text-align: center;
-        gap: 20px;
-    }
-
-    .conteudo {
-        max-width: 90%;
-    }
-
-    h1 {
-        font-size: 32px;
-        margin-bottom: 10px;
-    }
-
-    .conteudo p {
-        margin-top: 25px;
-        font-size: 14px;
-        text-align: center;
-    }
-
-    img {
-        max-width: 60%; /* Faz com que as imagens diminuam também */
-    }
-}
-
-@media screen and (min-width: 800px) and (max-width: 1200px) {
-    .container2 {
-        flex-direction: column; /* Faz os elementos ficarem um abaixo do outro */
-        text-align: center;
-        gap: 20px;
-    }
-
-    h1{ 
-        font-size: 32px
-    }
-
-    .conteudo p {
-        margin-top: 25px;
-        font-size: 14px;
-        text-align: center;
-    }   
+    font-size: 2rem; /* Unidade relativa */
 }
 
 #validacao-email, #validacao-telefone {
@@ -265,7 +192,8 @@ h2 {
     color: rgb(250, 0, 0);
     text-shadow: 5px 5px 10px rgba(0, 0, 0, 10);
     text-align: start;
-    width: 60%;
+    width: 90%;
+    max-width: 600px; /* Limita a largura máxima */
     margin: 0 auto 20px auto; 
     font-weight: bold;
 }
@@ -287,4 +215,66 @@ h2 {
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+/* Media Queries para telas menores */
+@media screen and (max-width: 1100px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .h2-form {
+        font-size: 1.8rem;
+    }
+
+    #mensagem-explicativa {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    img {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .container2 {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .conteudo p {
+        text-align: center;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .h2-form {
+        font-size: 1.5rem;
+    }
+
+    #mensagem-explicativa {
+        font-size: 0.9rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    img {
+        width: 70%;
+        max-width: 250px;
+    }
+
+    input, #botao-form {
+        width: 100%;
+    }
 }
